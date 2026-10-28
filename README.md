@@ -68,3 +68,11 @@ publishing derived results.
 Complete the dataset viability audit described in
 [`docs/research-plan.md`](docs/research-plan.md) before fitting predictive
 models.
+
+## Learning workflow
+
+This repository is also a guided learning project. Each research milestone has
+a concept lesson, prediction exercise, short quiz, explain-back, coding task,
+and research-defense checkpoint. See
+[`docs/learning-plan.md`](docs/learning-plan.md) and record completed
+checkpoints in [`docs/learning-log.md`](docs/learning-log.md).
