@@ -1,0 +1,23 @@
+dataset:
+  repository: Anthropic/claude-protein-binder-design
+  design_table: data/raw/data/tables/design_summary.parquet
+  wetlab_table: data/raw/data/tables/wetlab/summary.parquet
+  column_dictionary: data/raw/data/tables/column_dictionary.parquet
+
+columns:
+  id: uuid
+  design_name: full_name
+  target: target
+  label: binder_final
+  affinity: kd_nM_final
+  design_model: design_model
+
+evaluation:
+  split: leave_one_target_out
+  primary_metrics:
+    - average_precision
+    - top_10_hit_rate
+    - top_20_hit_rate
+    - enrichment_over_random
+    - brier_score
+  random_seed: 398
