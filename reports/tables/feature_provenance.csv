@@ -1,0 +1,12 @@
+column_group,created_by,analysis_role,available_before_lab,present_in_release
+binder_final,Wet-lab outcome,Outcome,False,True
+kd_nM_final,Wet-lab affinity,Outcome characterization,False,True
+adaptyv_* / twist_*,Wet-lab assays,Label construction and QC,False,True
+vendor_agreement,Wet-lab comparison,Sensitivity analysis,False,True
+ipsae_min_*,Structure prediction,Primary predictor,True,True
+sc_dockq_*,Structure prediction,Secondary predictor,True,True
+sequence,Designed candidate,Derived sequence features,True,True
+binder_length,Designed candidate,Predictor,True,True
+rank,Candidate selection,Baseline,True,True
+generator,Design provenance,Metadata/ablation,True,True
+campaign / design_model,Design provenance,Metadata/ablation,True,True

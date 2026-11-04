@@ -17,3 +17,5 @@ data/processed/**
 reports/figures/*.png
 reports/figures/*.pdf
 !reports/figures/.gitkeep
+!reports/figures/target_success_rates.png
+!reports/figures/single_score_average_precision.png
