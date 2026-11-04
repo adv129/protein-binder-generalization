@@ -49,6 +49,11 @@ def plot_target_success(summary: pd.DataFrame) -> None:
         )
     figure.tight_layout()
     figure.savefig(FIGURES / "target_success_rates.png", dpi=200, bbox_inches="tight")
+    axis.set_title("")
+    figure.tight_layout()
+    figure.savefig(
+        FIGURES / "target_success_rates_slide.png", dpi=200, bbox_inches="tight"
+    )
     plt.close(figure)
 
 
@@ -134,6 +139,13 @@ def plot_baselines(summary: pd.DataFrame, random_baseline: float) -> None:
     figure.tight_layout()
     figure.savefig(
         FIGURES / "single_score_average_precision.png", dpi=200, bbox_inches="tight"
+    )
+    axis.set_title("")
+    figure.tight_layout()
+    figure.savefig(
+        FIGURES / "single_score_average_precision_slide.png",
+        dpi=200,
+        bbox_inches="tight",
     )
     plt.close(figure)
 

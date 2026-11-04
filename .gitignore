@@ -19,3 +19,5 @@ reports/figures/*.pdf
 !reports/figures/.gitkeep
 !reports/figures/target_success_rates.png
 !reports/figures/single_score_average_precision.png
+!reports/figures/target_success_rates_slide.png
+!reports/figures/single_score_average_precision_slide.png
