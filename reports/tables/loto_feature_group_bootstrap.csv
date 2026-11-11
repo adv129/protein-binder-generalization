@@ -1,2 +1,4 @@
 model,feature_group_a,feature_group_b,minimum_binders,targets,mean_ap_difference,ci_2_5,ci_97_5,bootstrap_probability_a_better
-logistic_regression,combined,structure,5,12,0.009373749410447938,-0.04338208772865871,0.059278421046854206,0.64115
+logistic_regression,consensus_summaries,consensus_level,5,12,-0.0012179439570431845,-0.01510168925668823,0.010660158842651908,0.44565
+logistic_regression,consensus_level,individual_scores,5,12,0.0022179146957945575,-0.04285062908539147,0.0617525496404438,0.4885
+logistic_regression,combined,consensus_summaries,5,12,-0.016932023775826286,-0.07552385597504464,0.03556740845532241,0.2914

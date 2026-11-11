@@ -33,25 +33,38 @@ examples, so average precision is undefined for its fold.
 ## Initial results
 
 Across all 14 targets for which average precision is defined, regularized
-logistic regression using structural confidence and disagreement features has
-the highest mean average precision (0.557). The combined structural and sequence
-model has a lower mean average precision (0.518) but a slightly better mean
-Brier score and top-10 hit rate.
+logistic regression using summary measures of cross-model confidence has the
+highest mean average precision (0.580 to 0.581). The raw ten-score logistic
+model reaches 0.579, while disagreement alone reaches 0.432.
 
 These macro averages are sensitive to 15-PGDH and BBF-14, which contain only one
 and three binders. In the predefined sensitivity analysis restricted to the 12
 targets with at least five binders:
 
-- combined logistic regression: mean AP 0.573;
-- structure-only logistic regression: mean AP 0.564;
-- combined logistic regression: mean top-10 hit rate 0.600;
-- structure-only logistic regression: mean top-10 hit rate 0.567.
+- confidence-level summaries: mean AP 0.591;
+- confidence plus disagreement summaries: mean AP 0.590;
+- ten individual scores: mean AP 0.589;
+- disagreement alone: mean AP 0.459;
+- confidence plus disagreement summaries: mean top-10 hit rate 0.617.
 
-The paired target bootstrap estimates a combined-minus-structure mean AP
-difference of 0.009, with a 95% interval from approximately -0.043 to 0.059.
-The present evidence therefore does not establish that sequence features improve
-cross-target ranking, although they may help on particular targets and improve
-some decision metrics.
+The near-identical average precision of confidence-level and confidence-plus-
+disagreement summaries indicates that disagreement has not yet demonstrated
+incremental ranking value. Its small increase in top-10 hit rate requires a
+paired uncertainty analysis before it can be interpreted. Sequence features
+also do not show a consistent improvement over the strongest structural
+summary baseline.
+
+The paired target bootstrap supports that cautious interpretation:
+
+- adding disagreement to confidence-level summaries: mean AP difference -0.001,
+  95% interval [-0.015, 0.011];
+- confidence-level summaries versus the ten raw scores: difference 0.002,
+  interval [-0.043, 0.062];
+- adding sequence and design features to the summary baseline: difference
+  -0.017, interval [-0.076, 0.036].
+
+None of these comparisons currently establishes a reliable difference in
+cross-target average precision.
 
 ## Target-specific failures
 

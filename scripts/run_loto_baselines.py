@@ -165,12 +165,18 @@ def paired_target_bootstrap(
 
 
 def plot_model_summary(summary: pd.DataFrame) -> None:
+    labels = {
+        "consensus_level": "Confidence level summaries",
+        "consensus_summaries": "Confidence + disagreement summaries",
+        "individual_scores": "Ten individual ipSAE scores",
+        "structure": "All structural features",
+        "combined": "Structural + sequence/design features",
+        "sequence": "Sequence/design features",
+        "disagreement_only": "Disagreement only",
+    }
     plot_data = summary.reset_index().copy()
-    plot_data["label"] = (
-        plot_data["model"].str.replace("_", " ")
-        + " — "
-        + plot_data["feature_group"]
-    )
+    plot_data = plot_data[plot_data["model"].eq("logistic_regression")].copy()
+    plot_data["label"] = plot_data["feature_group"].map(labels)
     plot_data = plot_data.sort_values("mean_average_precision")
 
     figure, axis = plt.subplots(figsize=(9, 5.2))
@@ -187,6 +193,17 @@ def plot_model_summary(summary: pd.DataFrame) -> None:
     )
     axis.spines[["top", "right", "left"]].set_visible(False)
     axis.grid(axis="x", alpha=0.25)
+    for bar, value in zip(
+        axis.patches, plot_data["mean_average_precision"], strict=True
+    ):
+        axis.text(
+            value + 0.006,
+            bar.get_y() + bar.get_height() / 2,
+            f"{value:.3f}",
+            va="center",
+            fontsize=9,
+        )
+    axis.set_xlim(0, max(0.65, plot_data["mean_average_precision"].max() + 0.07))
     figure.tight_layout()
     figure.savefig(
         FIGURES / "loto_model_comparison.png", dpi=200, bbox_inches="tight"
@@ -202,7 +219,26 @@ def main() -> None:
     folds, predictions = run_evaluation(feature_table)
     summary = summarize(folds)
     sensitivity = summarize(folds[folds["n_binders"].ge(5)])
-    bootstrap = paired_target_bootstrap(folds)
+    bootstrap = pd.concat(
+        [
+            paired_target_bootstrap(
+                folds,
+                feature_group_a="consensus_summaries",
+                feature_group_b="consensus_level",
+            ),
+            paired_target_bootstrap(
+                folds,
+                feature_group_a="consensus_level",
+                feature_group_b="individual_scores",
+            ),
+            paired_target_bootstrap(
+                folds,
+                feature_group_a="combined",
+                feature_group_b="consensus_summaries",
+            ),
+        ],
+        ignore_index=True,
+    )
 
     schema_rows = [
         {"feature_group": group, "feature": feature}

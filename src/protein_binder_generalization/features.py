@@ -66,15 +66,19 @@ SEQUENCE_FEATURES = (
     "seq_max_run_fraction",
 )
 
-DISAGREEMENT_FEATURES = (
+CONSENSUS_LEVEL_FEATURES = (
     "ipsae_mean",
     "ipsae_median",
-    "ipsae_std",
     "ipsae_min_across_models",
     "ipsae_max_across_models",
-    "ipsae_range",
-    "ipsae_models_available",
 )
+
+DISAGREEMENT_FEATURES = (
+    "ipsae_std",
+    "ipsae_range",
+)
+
+STRUCTURE_SUMMARY_FEATURES = CONSENSUS_LEVEL_FEATURES + DISAGREEMENT_FEATURES
 
 DESIGN_FEATURES = (
     "binder_length",
@@ -183,9 +187,16 @@ def assert_no_leakage(feature_names: pd.Index | list[str] | tuple[str, ...]) -> 
 
 
 FEATURE_GROUPS = {
-    "structure": list(IPSAE_FEATURES + DISAGREEMENT_FEATURES),
+    "individual_scores": list(IPSAE_FEATURES),
+    "consensus_level": list(CONSENSUS_LEVEL_FEATURES),
+    "disagreement_only": list(DISAGREEMENT_FEATURES),
+    "consensus_summaries": list(STRUCTURE_SUMMARY_FEATURES),
+    "structure": list(IPSAE_FEATURES + STRUCTURE_SUMMARY_FEATURES),
     "sequence": list(SEQUENCE_FEATURES + DESIGN_FEATURES),
     "combined": list(
-        IPSAE_FEATURES + DISAGREEMENT_FEATURES + SEQUENCE_FEATURES + DESIGN_FEATURES
+        IPSAE_FEATURES
+        + STRUCTURE_SUMMARY_FEATURES
+        + SEQUENCE_FEATURES
+        + DESIGN_FEATURES
     ),
 }
