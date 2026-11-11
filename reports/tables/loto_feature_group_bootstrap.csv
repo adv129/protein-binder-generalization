@@ -1,0 +1,2 @@
+model,feature_group_a,feature_group_b,minimum_binders,targets,mean_ap_difference,ci_2_5,ci_97_5,bootstrap_probability_a_better
+logistic_regression,combined,structure,5,12,0.009373749410447938,-0.04338208772865871,0.059278421046854206,0.64115

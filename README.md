@@ -31,6 +31,7 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 python scripts/download_data.py
 python scripts/audit_dataset.py
+python scripts/run_loto_baselines.py
 ```
 
 The downloader retrieves only the tabular data and documentation required for
@@ -65,9 +66,10 @@ publishing derived results.
 
 ## Current milestone
 
-Complete the dataset viability audit described in
-[`docs/research-plan.md`](docs/research-plan.md) before fitting predictive
-models.
+The dataset viability audit and first leave-one-target-out baselines are
+complete. Current results, limitations, and the next analyses are documented in
+[`reports/modeling-progress.md`](reports/modeling-progress.md). The next
+milestone is target-specific calibration and failure analysis.
 
 ## Learning workflow
 

@@ -4,7 +4,6 @@ from pathlib import Path
 
 from huggingface_hub import hf_hub_download
 
-
 REPOSITORY = "Anthropic/claude-protein-binder-design"
 FILES = (
     "data/tables/design_summary.parquet",
