@@ -67,11 +67,12 @@ publishing derived results.
 ## Current milestone
 
 The dataset audit, leave-one-target-out baselines, target-specific calibration,
-failure-case analysis, and design-provenance confounder check are complete.
+failure-case analysis, design-provenance confounder check, and fixed-budget
+candidate-selection analysis are complete.
 Current results, limitations, and next analyses are documented in
 [`reports/modeling-progress.md`](reports/modeling-progress.md). The next
-milestone is decision-focused candidate selection under fixed experimental
-budgets.
+milestone is testing whether unsafe target rankings can be detected or improved
+through abstention and candidate diversification.
 
 ## Learning workflow
 

@@ -93,10 +93,24 @@ and BHRF1. It performs substantially better on TREM2, Latent GDF-8, PD-L1,
 VEGF-A, Nipah-G, and RBX1. This variation is central to the project: aggregate
 performance alone does not show when a candidate ranking can be trusted.
 
+## Fixed experimental budgets
+
+Decision-focused evaluation now measures how many binders are recovered when a
+lab tests only the top 1, 3, 5, 10, 20, or 30 candidates for each held-out
+target. Across all 15 measured targets, the top ten contain an average of 4.87
+binders, compared with 2.65 expected from random selection. The paired gain is
+2.21 binders per target, with a bootstrap interval of [1.12, 3.35].
+
+Among the 12 targets with at least five binders, the top-ten average is 6.00
+versus a random expectation of 3.26. However, individual targets range from 1
+to 10 recovered binders. The model therefore improves average experimental
+yield without providing a reliable per-target guarantee. Full results are in
+`reports/candidate-selection-analysis.md`.
+
 ## Next analysis
 
-1. Test conservative candidate-selection rules across experimental budgets.
-2. Report worst-target performance in addition to mean performance.
-3. Determine whether a model can abstain on targets where rankings are unsafe.
-4. Validate final conclusions on an independent public binder dataset if one
+1. Determine whether a model can abstain on targets where rankings are unsafe.
+2. Test whether candidate diversification across predictors or generators
+   improves the worst-target yield.
+3. Validate final conclusions on an independent public binder dataset if one
    with compatible wet-lab outcomes is available.

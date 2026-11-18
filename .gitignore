@@ -26,3 +26,4 @@ reports/figures/*.pdf
 !reports/figures/pooled_reliability_curve.png
 !reports/figures/top10_hit_rate_by_target.png
 !reports/figures/design_provenance_comparison.png
+!reports/figures/candidate_selection_budget_curve.png
