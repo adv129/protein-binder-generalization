@@ -66,10 +66,12 @@ publishing derived results.
 
 ## Current milestone
 
-The dataset viability audit and first leave-one-target-out baselines are
-complete. Current results, limitations, and the next analyses are documented in
+The dataset audit, leave-one-target-out baselines, target-specific calibration,
+failure-case analysis, and design-provenance confounder check are complete.
+Current results, limitations, and next analyses are documented in
 [`reports/modeling-progress.md`](reports/modeling-progress.md). The next
-milestone is target-specific calibration and failure analysis.
+milestone is decision-focused candidate selection under fixed experimental
+budgets.
 
 ## Learning workflow
 

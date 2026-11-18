@@ -66,6 +66,26 @@ The paired target bootstrap supports that cautious interpretation:
 None of these comparisons currently establishes a reliable difference in
 cross-target average precision.
 
+## Design-provenance confounder check
+
+The public dataset contains candidates from ten generation pipelines with
+different pooled experimental success rates. A separate leave-one-target-out
+ablation therefore tested whether the structural model was merely exploiting
+generator identity or other design provenance.
+
+Among the 12 targets with at least five binders:
+
+- structural confidence summaries: mean AP 0.591;
+- all provenance variables without structure confidence: mean AP 0.505;
+- generator identity alone: mean AP 0.361;
+- structural confidence plus all provenance: mean AP 0.549.
+
+Adding all provenance variables changes paired target AP by -0.042, with a
+bootstrap interval of [-0.084, -0.006]. Generator identity therefore does not
+explain the structural model's ranking performance and does not improve this
+fixed cross-target model. This is a predictive ablation, not a causal ranking
+of design generators; see `reports/design-provenance-analysis.md`.
+
 ## Target-specific failures
 
 The structure-only logistic model performs poorly on BBF-14, Cas9, TNF-alpha,
@@ -75,8 +95,8 @@ performance alone does not show when a candidate ranking can be trusted.
 
 ## Next analysis
 
-1. Compare model confidence and calibration target by target.
-2. Test whether disagreement among structure predictors identifies failures.
-3. Add feature-group ablations without selecting models on held-out targets.
-4. Quantify uncertainty across targets with bootstrap intervals.
-5. Inspect high-confidence false positives and low-confidence true binders.
+1. Test conservative candidate-selection rules across experimental budgets.
+2. Report worst-target performance in addition to mean performance.
+3. Determine whether a model can abstain on targets where rankings are unsafe.
+4. Validate final conclusions on an independent public binder dataset if one
+   with compatible wet-lab outcomes is available.

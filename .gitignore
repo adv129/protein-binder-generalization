@@ -25,3 +25,4 @@ reports/figures/*.pdf
 !reports/figures/target_calibration.png
 !reports/figures/pooled_reliability_curve.png
 !reports/figures/top10_hit_rate_by_target.png
+!reports/figures/design_provenance_comparison.png

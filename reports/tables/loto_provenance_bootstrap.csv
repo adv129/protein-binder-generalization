@@ -1,0 +1,5 @@
+comparison_group,reference_group,minimum_binders,targets,mean_ap_difference,ci_2_5,ci_97_5,bootstrap_probability_comparison_better
+generator_only,consensus,5,12,-0.23012563335604616,-0.31734701318852926,-0.14521235281767114,0.0
+provenance_only,consensus,5,12,-0.08577186791836693,-0.16263288656770644,-0.007387375432863212,0.0169
+consensus_plus_generator,consensus,5,12,-0.05656132457082532,-0.09818048726519821,-0.010615288963034517,0.00835
+consensus_plus_provenance,consensus,5,12,-0.042018137116170105,-0.0843952444883514,-0.006377860294206648,0.008
