@@ -34,6 +34,13 @@ python scripts/audit_dataset.py
 python scripts/run_loto_baselines.py
 ```
 
+Optional independent validation uses the public Overath et al. meta-analysis:
+
+```bash
+python scripts/download_external_validation.py
+python scripts/audit_external_validation.py
+```
+
 The downloader retrieves only the tabular data and documentation required for
 the initial audit. It does not download the full structural archive.
 
@@ -67,8 +74,9 @@ publishing derived results.
 ## Current milestone
 
 The dataset audit, leave-one-target-out baselines, target-specific calibration,
-failure-case analysis, design-provenance confounder check, and fixed-budget
-candidate-selection analysis are complete.
+failure-case analysis, design-provenance confounder check, fixed-budget
+candidate-selection analysis, and independent validation on 3,669 additional
+experimentally labeled designs are complete.
 Current results, limitations, and next analyses are documented in
 [`reports/modeling-progress.md`](reports/modeling-progress.md). The next
 milestone is testing whether unsafe target rankings can be detected or improved

@@ -1,0 +1,14 @@
+feature,missing_fraction
+colab_ipSAE_min,0.005178522758244753
+colab_ipSAE_avg,0.005178522758244753
+boltz1_ipSAE_min,0.0010902153175252113
+boltz1_ipSAE_avg,0.0010902153175252113
+af3_ipSAE_min,0.0
+af3_ipSAE_avg,0.0
+af3_iptm_avg,0.0
+boltz1_iptm_avg,0.0
+colab_iptm_avg,0.0
+af3_rosetta_interface_sc,0.0
+af3_rosetta_interface_dG,0.0
+af3_rosetta_interface_dSASA,0.0
+af2_binder_aligned_rmsd,0.0

@@ -107,10 +107,28 @@ to 10 recovered binders. The model therefore improves average experimental
 yield without providing a reliable per-target guarantee. Full results are in
 `reports/candidate-selection-analysis.md`.
 
+## Independent external validation
+
+The main conclusion was tested on the Overath et al. public meta-analysis after
+excluding seven unlabeled rows: 3,669 designs, 394 binders, and 15 targets. No
+external binder sequence exactly matches a sequence in the primary dataset.
+
+Direct AF3 ipSAE obtains mean target AP 0.513. A model trained once on the
+Anthropic release and applied unchanged to the external table obtains mean AP
+0.477 across all targets and 0.501 across the 11 targets not seen by normalized
+name in training. The paired target bootstrap does not establish that AF3,
+external LOTO logistic regression, and the frozen primary model differ reliably
+in ranking quality.
+
+Calibration failure independently reproduces. External LOTO predictions have
+pooled ECE 0.018 but mean absolute target bias 0.102. The frozen cross-dataset
+model has pooled ECE 0.078 and mean absolute target bias 0.128. Full details are
+in `reports/external-validation-results.md`.
+
 ## Next analysis
 
 1. Determine whether a model can abstain on targets where rankings are unsafe.
 2. Test whether candidate diversification across predictors or generators
    improves the worst-target yield.
-3. Validate final conclusions on an independent public binder dataset if one
-   with compatible wet-lab outcomes is available.
+3. Consolidate the primary and external results into the final class report and
+   presentation, clearly separating reproduced findings from new analyses.
